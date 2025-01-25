@@ -1,0 +1,60 @@
+{
+  "name": "correcteur-texte",
+  "version": "1.0.0",
+  "description": "Correcteur orthographique et grammatical",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder build",
+    "build:win": "electron-builder build --win",
+    "build:mac": "electron-builder build --mac"
+  },
+  "build": {
+    "appId": "com.correcteur.app",
+    "productName": "Correcteur de Texte",
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        },
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "icon.png"
+    },
+    "mac": {
+      "target": ["dmg"],
+      "icon": "icon.png"
+    },
+    "nsis": {
+      "oneClick": true,
+      "installerIcon": "icon.png",
+      "uninstallerIcon": "icon.png",
+      "uninstallDisplayName": "Correcteur de Texte",
+      "license": "license.txt",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Correcteur de Texte"
+    },
+    "directories": {
+      "output": "dist"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "clipboard-js": "^0.3.6",
+    "electron-context-menu": "^3.6.1",
+    "languagetool-api": "^1.1.2",
+    "node-global-key-listener": "^0.3.0"
+  },
+  "devDependencies": {
+    "electron": "^34.0.1",
+    "electron-builder": "^25.1.8"
+  }
+}
