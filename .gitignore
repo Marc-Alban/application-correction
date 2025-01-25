@@ -2,7 +2,6 @@
 node_modules/
 
 # Build
-dist/
 build/
 
 # Fichiers système
@@ -27,4 +26,6 @@ yarn-error.log*
 *.swo
 
 # Fichiers de build Electron
-out/ 
+out/
+release/
+.webpack/ 
