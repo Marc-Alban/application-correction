@@ -5,9 +5,9 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder build",
     "build:win": "electron-builder build --win",
-    "build:mac": "electron-builder build --mac"
+    "build:mac": "electron-builder build --mac",
+    "build:all": "electron-builder build -mw"
   },
   "build": {
     "appId": "com.correcteur.app",
@@ -16,30 +16,36 @@
       "target": [
         {
           "target": "nsis",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         },
         {
           "target": "portable",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         }
       ],
-      "icon": "icon.png"
+      "icon": "build/icon.ico"
     },
     "mac": {
-      "target": ["dmg"],
-      "icon": "icon.png"
+      "target": [
+        "dmg"
+      ],
+      "icon": "build/icon.icns"
     },
     "nsis": {
       "oneClick": true,
-      "installerIcon": "icon.png",
-      "uninstallerIcon": "icon.png",
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico",
       "uninstallDisplayName": "Correcteur de Texte",
-      "license": "license.txt",
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
       "shortcutName": "Correcteur de Texte"
     },
     "directories": {
+      "buildResources": "build",
       "output": "dist"
     }
   },
@@ -54,7 +60,8 @@
     "node-global-key-listener": "^0.3.0"
   },
   "devDependencies": {
-    "electron": "^34.0.1",
-    "electron-builder": "^25.1.8"
+    "electron": "^34.0.0",
+    "electron-builder": "^25.0.0",
+    "png-to-ico": "^2.1.8"
   }
 }
